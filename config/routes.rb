@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   post 'posts' => 'posts#create'
   get 'posts/new' => 'posts#new', as: 'new_post'
   get 'posts/:id' => 'posts#show' , as: 'post'
+
+  resources :users
+  get 'login' => 'users#index' 
+  get 'register' => 'users#register'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
