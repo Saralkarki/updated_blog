@@ -1,3 +1,17 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.blog_body{
+    resize:none;
+    border: 2px solid;
+}
+.post_heading{
+    margin-top: 15px;
+    text-align: center;
+}
+#btn{
+    text-align:center;
+}
+.text_size{
+    width: 200px;
+}
