@@ -1,3 +1,13 @@
-<h1><%= @post.title %></h1>
-<p> <%= @post.blob %> </p>
-<p> <%= @post.author%></p>
+<div class="container">
+    <div class="row">
+        <div class="col justify-center">
+        <h1><%= @post.title %></h1>
+        <p> <h5>Author: <%=  @post.author%></h5> </p>
+        </div>
+        <div> 
+        <br/>
+          <p>  <%= @post.blob %>  </p>
+        </div>
+            
+    </div>
+</div>

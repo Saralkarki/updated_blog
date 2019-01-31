@@ -3,6 +3,10 @@ class PostsController < ApplicationController
         @posts = Post.all   
     end
 
+    def failure
+    
+    end
+
     def show
         # puts ">>>>> >>>> >>>> #{params[:id]}" see what paramerter is being sent through from the route
         @post = Post.find(params[:id])
