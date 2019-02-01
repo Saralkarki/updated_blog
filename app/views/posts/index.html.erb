@@ -1,6 +1,5 @@
 
 <div class="container">
-
     <h1> Post List </h1>
     <table class="table">
         <thead class="thead-dark">
@@ -14,4 +13,10 @@
         <% end %>  
     </table>
 </div>
+
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
+
+<%= link_to 'Click here to log out.', logout_path %>
 

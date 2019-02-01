@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   
   #Routes for blog posts
 
-  get 'posts/index'
-  # root 'posts#index'
+  
   post 'posts' => 'posts#create'
   get 'posts/new' => 'posts#new', as: 'new_post'
   get 'posts/failure' => 'posts#failure', as: 'failure'

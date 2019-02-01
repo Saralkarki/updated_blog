@@ -1,33 +1,48 @@
-<h1>Sign Up</h1>
-<p>Create a new account using the form below.  All fields are required.</p>
 
-<% if @user.errors.any? %>
-  <div class='alert alert-danger'>
-    <p>Please correct the following errors:</p>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4" >
+      <h1>Sign Up</h1>
+      <p>All fields are required.</p>
+    </div>
+  </div>
+  <% if @user.errors.any? %>
+    <div class='alert alert-danger'>
+      <p>Please correct the following errors:</p>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= form_for @user do |f| %>
+        <div class='form-group'>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' , placeholder: 'Email addres' %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' ,placeholder: 'password' %>
+        </div>
+        <div class='form-group'>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' , placeholder: 'Confirm email addres' %>
+        </div>
+        <%= f.submit 'Register', class: 'btn btn-primary' %>
       <% end %>
-    </ul>
+    </div>
   </div>
-<% end %>
 
-<%= form_for @user do |f| %>
-  <div class='form-group'>
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <p>
+        Already have an account? <%= link_to 'Click here to sign in.', login_path %>
+      </p>
+    </div>
   </div>
-  <div class='form-group'>
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
-  <div class='form-group'>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
-  </div>
-  <%= f.submit 'Register', class: 'btn btn-primary' %>
-<% end %>
 
-<p class='mt-2'>
-  Already have an account? <%= link_to 'Click here to sign in.', login_path %>
-</p>
+</div>
