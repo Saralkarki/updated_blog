@@ -1,6 +1,18 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//CSS for Show post page
+.post_heading_show{
+    background: lightblue url("blog_bg.jpg") no-repeat fixed center;
+    height:30vh;
+    margin-top:-20px
+}
+.logo{
+    width: 80%;
+    height: auto;
+    margin: 5px 0 0 0;
+}
+// Create post page
 .blog_body{
     resize:none;
     border: 2px solid;

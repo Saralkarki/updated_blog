@@ -10,11 +10,15 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   #Routes for blog posts
-
-  
+ 
   post 'posts' => 'posts#create'
   get 'posts/new' => 'posts#new', as: 'new_post'
-  get 'posts/failure' => 'posts#failure', as: 'failure'
+  get 'posts/:id/edit' => 'posts#edit', as: 'edit_post' 
+  get 'posts/failure' => 'posts#failure', as: 'failure_post'
+  delete 'posts/:id' => 'posts#destroy', as: 'destroy_post'
+  #get 'posts/edit' => 'posts#edit', as: 'edit_post'
   get 'posts/:id' => 'posts#show' , as: 'post'
+  patch "posts/:id" => "posts#update"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
