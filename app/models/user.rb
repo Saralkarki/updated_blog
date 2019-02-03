@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_secure_password
   # we also add validation to the fields. That validates the email, looks and the uniqueness from the database and checks if all field
   #is entered.
-  validates :email, uniqueness: true, presence: true
+  validates  :username, :email, uniqueness: true, presence: true
 end

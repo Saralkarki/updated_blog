@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     reset_session
-    @user = User.find_by(email: session_params[:email])
+    @user = User.find_by(username: session_params[:username])
 
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.require(:session).permit(:email, :password)
+    params.require(:session).permit(:username, :password)
   end
 
 
