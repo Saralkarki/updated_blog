@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-    before_action :reset_session
     def failure
     
     end
