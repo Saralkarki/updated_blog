@@ -1,7 +1,4 @@
-
- 
-<%= form_for(@post) do |f|%>
- 
+<%= form_for(@post) do |f|%> 
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -24,17 +21,11 @@
                 </div>
                 <div class="form-group">
                     <%= f.label :blob, 'Story' %><br>
-                    <%= f.text_area :blob , class: "form-control blog_body" , rows: 20, :required => true %> 
-                                     
-                </div>
-                <div class="form-group text_size">
-                    <%= f.label :author %><br>
-                    <%= f.text_field :author , class: "form-control"%>
-                </div>
+                    <%= f.text_area :blob, class: "form-control blog_body" , rows: 20, :required => true %>             
+                  <%= f.hidden_field :username, :value => @user.username %>
                 <div id = "btn">
                     <%= f.submit "Submit", class: "btn btn-primary" %>
                 </div>
-           
- 
+                
 <% end %>
  

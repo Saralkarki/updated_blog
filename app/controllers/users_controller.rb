@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] =  'You have successfully created an account.  Please sign in to continue.'
-      redirect_to login_path
+      redirect_to login_path 
     else
       render :new
     end

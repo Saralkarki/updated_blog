@@ -1,4 +1,3 @@
-
 <div class="container">
     <h1> Post List </h1>
     <table class="table">
@@ -7,16 +6,22 @@
             <th scope="col"> Title </th>
         </tr>
         </thead>
-        <% @posts.each do |post| %>
-        <tr>
-            <td> <%= link_to post.title, post_path(post) %> </td>
-        <% end %>  
-    </table>
+        <% @post.each do |post| %>
+        <tbody>
+        <tr class="d-flex">
+            <td class="col-10" > <%= link_to post.title, post_path(post) %> </td>
+            <td class="col-1">  <%= link_to 'Show ' , post_path(post) %> </td>
+           <%# <%= if session[:username] == "saral"  %>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+             <td><%= link_to 'Delete', destroy_post_path(post),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }%></td>
+            <% end %>
+
+           
+        
+           
+        </tr>
+        </tbody>    
+    </table>  
 </div>
-
-<% if flash[:success] %>
-  <%= flash[:success] %>
-<% end %>
-
-<%= link_to 'Click here to log out.', logout_path %>
-

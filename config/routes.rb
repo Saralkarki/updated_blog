@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Routes for users
-  root 'dashboard#show' 
+  #root 'posts#index' 
   get 'users/new' => 'users#new', as: 'register_page'
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   #Routes for blog posts
- 
+  root 'posts#index' 
   post 'posts' => 'posts#create'
   get 'posts/new' => 'posts#new', as: 'new_post'
   get 'posts/:id/edit' => 'posts#edit', as: 'edit_post' 

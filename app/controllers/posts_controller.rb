@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
+    skip_before_action :require_valid_user!, only: [:index]
+
     def failure
     
     end
 
+    def index
+        @post = Post.all
+        puts ">>>>#{Post.where(title:"saral")}"
+    end
+
     def show
-        # puts ">>>>> >>>> >>>> #{params[:id]}" see what paramerter is being sent through from the route
         @post = Post.find(params[:id])
     end
 
@@ -14,6 +20,8 @@ class PostsController < ApplicationController
 
     def create
         post = Post.new(post_params)
+        @post_username = post_params[:username]
+        puts ">>> #{@post_username} "
         if post.save
             redirect_to post_path(post)           
         else
@@ -43,6 +51,9 @@ class PostsController < ApplicationController
     
     private 
         def post_params
-            params.require(:post).permit(:title,:blob,:author)
+            params.require(:post).permit(:username, :title , :blob)
         end
+   
+
+     
 end
