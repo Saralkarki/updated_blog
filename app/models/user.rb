@@ -6,4 +6,6 @@ class User < ApplicationRecord
   # we also add validation to the fields. That validates the email, looks and the uniqueness from the database and checks if all field
   #is entered.
   validates  :username, :email, uniqueness: true, presence: true
+
+  has_many :post
 end

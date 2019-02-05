@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
     def index
         @post = Post.all
-        puts ">>>>#{Post.where(title:"saral")}"
+        # puts ">>>>#{Post.where(title:"saral")}"
     end
 
     def show
@@ -15,16 +15,16 @@ class PostsController < ApplicationController
     end
 
     def new
-        @post = Post.new
+        @post = current_user.post.build
+        
     end
 
     def create
-        post = Post.new(post_params)
-        @post_username = post_params[:username]
-        puts ">>> #{@post_username} "
+        post = current_user.post.build(post_params)
         if post.save
             redirect_to post_path(post)           
         else
+            flash[:error] =   "could not save"
             redirect_to new_post_path          
         end
     end
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
     
     private 
         def post_params
-            params.require(:post).permit(:username, :title , :blob)
+            params.require(:post).permit( :title , :blob)
         end
    
 
