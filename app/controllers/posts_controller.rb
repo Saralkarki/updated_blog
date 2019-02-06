@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
     def index
         @post = Post.all
+        @user_id = current_user.post.all
         # puts ">>>>#{Post.where(title:"saral")}"
     end
 

@@ -35,9 +35,13 @@
             <li><%= link_to 'Login', login_path , class: 'glyphicon glyphicon-log-in'%></a></li> 
             <li><%= link_to 'Register', register_page_path , class: 'glyphicon glyphicon-user'%></li>             
           <% else %>         
+          <li> <%= link_to @user.username.upcase, user_detail_path(@user) , class: 'glyphicon glyphicon-user' %> </li>
           <li><%= link_to 'Logout', logout_path , class: 'glyphicon glyphicon-log-out' %> <li>
           
+          
         <% end %>
+        
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

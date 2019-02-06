@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
   
+  get 'sessions/:id' => 'sessions#show' , as: 'user_detail'
+  
 
-  resources :sessions, only: [:create]
+  resources :sessions, only: [:create,:show]
   resources :users, only: [:new, :create]
   
   #Routes for blog posts
