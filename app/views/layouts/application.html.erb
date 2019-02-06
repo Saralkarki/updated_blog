@@ -10,43 +10,38 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
   
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    
-    </div>
-    <div class="col-md-1 col-sm-12"><%= image_tag("logo.png", :alt => "rss feed", :class => "logo") %>    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"> <%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'New Post', new_post_path %></li>
+  <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="col-md-1 col-sm-12"><%= image_tag("logo.png", :alt => "rss feed", :class => "logo")     %></div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Home', root_path , class:"nav-link"%> <span class="sr-only">(current)</span>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'New Post', new_post_path , class:"nav-link" %>
+      </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">        
-         <%  if !session[:user_id]%>
-            <li><%= link_to 'Login', login_path , class: 'glyphicon glyphicon-log-in'%></a></li> 
-            <li><%= link_to 'Register', register_page_path , class: 'glyphicon glyphicon-user'%></li>             
-          <% else %>         
-          <li> <%= link_to @user.username.upcase, user_detail_path(@user) , class: 'glyphicon glyphicon-user' %> </li>
-          <li><%= link_to 'Logout', logout_path , class: 'glyphicon glyphicon-log-out' %> <li>
-          
+      <ul class="navbar-nav justify-content-end">
+     <%  if !session[:user_id]%>
+            <li class="nav-item"><%= link_to 'Login', login_path , class:"nav-link fa fa-sign-in"%>
+            
+            <li class="nav-item"><%= link_to 'Register', register_page_path , class:"nav-link fa fa-user-plus"%></li>             
+          <% else %>        
+          <li class="nav-item"> <%= link_to @user.username.upcase, user_detail_path(@user) , class:"nav-link" %> </li>
+          <li class="nav-item"><%= link_to 'Logout', logout_path , class:"nav-link"%> </li>      
           
         <% end %>
-        
-
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+         </ul>
+  </div>
 </nav>
+
     
   <%= yield %>
+  
   </body>
 </html>

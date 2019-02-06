@@ -1,28 +1,35 @@
-<div class="container">
-    <h1> Post List </h1>
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col"> Title </th>
-        </tr>
-        </thead>
+<div class="container">  
+    
+    <table class="table table-hover table-dark table-borderless">
         <% @post.each do |post| %>
         <tbody>
-        <tr class="d-flex">
-            <td class="col-10" > <%= link_to post.title, post_path(post) %> </td>
-            <td class="col-1">  <%= link_to 'Show ' , post_path(post) %> </td>
+        <tr>
+            <td> <%= link_to post.title,post_path(post) %> 
+            <%# <a class="title_of_blog"><%=post.title %>
+             <%# <p> <%= post.created_at %>
+             
+       
+            <%# <td colspan="1">  <%= link_to 'Show' , post_path(post) %> 
+            <%# </td> %> 
+             <td width="5%" ><%= link_to post_path(post) do %>
+                            <i class="fa fa-eye"></i>
+                            <% end %>
+                           
+            </td>
             <%  if session[:user_id] == post[:user_id]%>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-             <td><%= link_to 'Delete', destroy_post_path(post),
-              method: :delete,
-              data: { confirm: 'Are you sure?' }%></td>
+            <td width="5%" ><%= link_to edit_post_path(post) do %>
+                            <i class="fa fa-pencil"></i>
+                            <% end %>
+                           
+            </td>
+             <td width="5%"><%= link_to destroy_post_path(post) ,method: :delete,
+              data: { confirm: 'Are you sure?' } do%>             
+              <i class="fa fa-trash"></i> </td>
+               <% end %>            
             <% end %>
-            <% end %>
-
-          
-        
-           
+            <% end %>          
         </tr>
         </tbody>    
     </table>  
+    
 </div>
