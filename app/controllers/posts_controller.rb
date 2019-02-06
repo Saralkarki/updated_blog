@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         if session[:user_id] 
             @user_id = current_user.post.all
         end
-        puts @post.where(created_at: "2019-02-06 08:42:42")
+        
         # puts ">>>>#{Post.where(title:"saral")}"
     end
 
