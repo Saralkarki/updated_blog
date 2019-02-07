@@ -13,7 +13,7 @@
                 <p> <h5>Author: <%=  @post.user.username %></h5> </p>
             </div>
             <div class="post_body">
-                <p> <%= simple_format(@post.blob) %>  </p>
+                <p> <%= markdown(@post.blob) %>  </p>
             </div>
            
         </div>

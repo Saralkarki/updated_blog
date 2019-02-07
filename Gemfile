@@ -16,6 +16,8 @@ gem 'puma', '~> 3.11'
 gem 'bootstrap', '~> 4.2.1'
 gem "font-awesome-rails" , '~> 4.7.0.4'
 # gem 'sassc-rails', '>= 2.0.0'
+gem 'redcarpet', '~> 3.4'
+gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
