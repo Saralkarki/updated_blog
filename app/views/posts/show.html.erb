@@ -3,8 +3,10 @@
     <div class="col-md-12 post_heading_show">
 
     </div>
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 offset-md-2">
             <div class="post_title">
+            <!-- used regex to create the time> <-->
+            <p> <%= @post.created_at.strftime('%A, %B %d')%>
                 <h1><%= @post.title %></h1>
             </div>
             <div class="post_author">
