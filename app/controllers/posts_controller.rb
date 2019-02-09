@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    skip_before_action :require_valid_user!, only: [:index]
+    skip_before_action :require_valid_user!, only: [:index,:show]
 
     def failure
     
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     def index
         @post = Post.all
         if session[:user_id] 
-            @user_id = current_user.post.all
+            @user_id = current_user.posts.all
         end
         
         # puts ">>>>#{Post.where(title:"saral")}"
@@ -16,14 +16,15 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
+        
     end
 
     def new
-        @post = current_user.post.build       
+        @post = current_user.posts.build       
     end
 
     def create
-        post = current_user.post.build(post_params)
+        post = current_user.posts.build(post_params)
         if post.save
             redirect_to post_path(post)           
         else

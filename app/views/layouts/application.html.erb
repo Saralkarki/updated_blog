@@ -32,7 +32,7 @@
             
             <li class="nav-item"><%= link_to 'Register', register_page_path , class:"nav-link fa fa-user-plus"%></li>             
           <% else %>        
-          <li class="nav-item"> <%= link_to @user.username.upcase, user_detail_path(@user) , class:"nav-link" %> </li>
+          <!--<li class="nav-item"> <%= link_to session[:username], user_detail_path(@user) , class:"nav-link" %> </li> -->
           <li class="nav-item"><%= link_to 'Logout', logout_path , class:"nav-link"%> </li>      
           
         <% end %>
