@@ -28,6 +28,27 @@
     color: #FFFFFF;
     margin-left:30px;
 }
+.intro{
+    height: 30vh;
+
+    background:#91C7B1;
+    margin: 10px 0 0 0;
+}
+.intro:hover{
+    background: #F1F7ED;
+    // 	text-shadow:1px 1px 2px #ccf;
+    text-decoration: none;  
+     }
+a.hover{
+    text-decoration: none;
+}
+.logo_in_intro_doc{
+    width: 60%;
+    height: auto;
+    position: relative;
+    top: 0px;
+    left:60px;
+}
 
 // Create post page
 .blog_body{

@@ -7,17 +7,16 @@ class PostsController < ApplicationController
 
     def index
         @post = Post.all
+        puts ">>>> #{@post.where(title: "Post 1")}"
+        # @post_id = Post.find(params[:id]) 
         if session[:user_id] 
             @user_id = current_user.posts.all
         end
-        
-        # puts ">>>>#{Post.where(title:"saral")}"
     end
 
     def show
         @post = Post.find(params[:id]) 
         @user_id = current_user.posts.all 
-        puts ">>>> #{@post.id}"     
     end
 
     def new

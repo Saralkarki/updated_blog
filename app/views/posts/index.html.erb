@@ -1,8 +1,24 @@
-<div class="container">  
+<div class="container"> 
+<% @post.find(1) do|post| %> 
+    <%= link_to post_path(post), :action => 'go' do %>
+        <div class="col-md-4 intro">
+            <h4> <%= post.title %> </h4>
+         <%= image_tag("logo.png", :alt => "rss feed", :class => "logo_in_intro_doc") %>
+        </div>
+    <% end %>
+ <% end %>
+  
     
+
+    
+
     <table class="table table-hover table-dark table-borderless">
         <% @post.each do |post| %>
         <tbody>
+        <tr>
+        
+
+        </tr>
         <tr>
             <td> <%= link_to post.title,post_path(post) %> 
             <%# <a class="title_of_blog"><%=post.title %>
@@ -16,7 +32,7 @@
                             <% end %>
                            
             </td>
-            <%  if session[:user_id] == post[:user_id]%>
+            <%  if session[:user_id] == post[:user_id] or session[:username] == "admin"%>
             <td width="5%" ><%= link_to edit_post_path(post) do %>
                             <i class="fa fa-pencil"></i>
                             <% end %>
