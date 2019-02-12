@@ -2,16 +2,20 @@ class SessionsController < ApplicationController
   skip_before_action :require_valid_user!, except: [:destroy]
   
   def new
-
+   
   end
 
   def show
     @user = User.find(params[:id])
+    # session[:user_id] = @user.id  
+    # session[:username] = @user.username 
+    puts ">>>> #{@user.username}"
   end
 
   def create
     reset_session
     @user = User.find_by(username: session_params[:username])
+    
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id  
       session[:username] = @user.username   
