@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find(params[:id])
     # session[:user_id] = @user.id  
     # session[:username] = @user.username 
-    puts ">>>> #{@user.username}"
+    # sputs ">>>> #{@user.username}"
   end
 
   def create
@@ -31,9 +31,21 @@ class SessionsController < ApplicationController
     reset_session
   end
 
+  def edit
+    @user = User.find(params[:id])
+    # puts ">>>>>>> #{@user.username}<<<<<<"
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   def session_params
     params.require(:session).permit(:username, :password)
   end
-
-
 end

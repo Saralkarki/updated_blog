@@ -1,0 +1,18 @@
+<div class="col-md-4 offset-md-4">
+<h1> Edit </h1>
+<!-- # What is going on ehre -->
+  <%= form_for @user, url: users_path(@user), html: { method: :put } do |f| %>
+ <div class="form-group">
+                    <%= f.label :"old password" %><br>
+                    <%= f.password_field :password , class: "form-control" , placeholder: "Old Password" , :required => true %>
+                </div>
+ <div class="form-group">
+                    <%= f.label :"New password" %><br>
+                    <%= f.password_field :password , class: "form-control" , placeholder: "New Password" , :required => true %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :"Confirm New password" %><br>
+                    <%= f.password_field :password , class: "form-control" , placeholder: "Confirm New Password" , :required => true %>
+                </div>
+                 <%= f.submit 'Submit', class: 'btn btn-primary' %>               
+<% end %> 

@@ -4,11 +4,10 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new', as: 'register_page'
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
-  
+   
   get 'sessions/:id' => 'sessions#show' , as: 'user_detail'
-  
 
-  resources :sessions, only: [:create,:show]
+  resources :sessions, only: [:create,:show,:edit,:update]
   resources :users, only: [:new, :create]
   
   #Routes for blog posts
