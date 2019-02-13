@@ -1,17 +1,10 @@
 <div class="container"> 
-<% @post.find(1) do|post| %> 
-    <%= link_to post_path(post), :action => 'go' do %>
+    <%= link_to post_path(@main_post), :action => 'go' do %>
         <div class="col-md-4 intro">
-            <h4> <%= post.title %> </h4>
-         <%= image_tag("logo.png", :alt => "rss feed", :class => "logo_in_intro_doc") %>
+            <h4 class="title_of_blog"><%= @main_post.title  %>  </h4>
+            <%= image_tag("logo.png", :alt => "rss feed", :class => "logo_in_intro_doc") %>
         </div>
     <% end %>
- <% end %>
-  
-    
-
-    
-
     <table class="table table-hover table-dark table-borderless">
         <% @post.each do |post| %>
         <tbody>

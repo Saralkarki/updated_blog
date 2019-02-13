@@ -6,8 +6,9 @@ class PostsController < ApplicationController
     end
 
     def index
-        @post = Post.all
-        puts ">>>> #{@post.where(title: "Post 1")}"
+        
+        @post = Post.all.order('created_at DESC')
+        @main_post = Post.find(9)
         # @post_id = Post.find(params[:id]) 
         if session[:user_id] 
             @user_id = current_user.posts.all
