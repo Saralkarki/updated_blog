@@ -18,7 +18,12 @@
            
         </div>
     <div> 
-   
+  
+</div>
+<div class="col-md-4 offset-md-4">
+    <div class="pagenumber_post">
+      <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    </div>
 </div>
             
   

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   #Routes for blog posts
-  root 'posts#index' 
+  root 'home#index'
+  get 'posts/index' => 'posts#index' , as: 'post_home'
   post 'posts' => 'posts#create'
   get 'posts/new' => 'posts#new', as: 'new_post'
   get 'posts/:id/edit' => 'posts#edit', as: 'edit_post' 

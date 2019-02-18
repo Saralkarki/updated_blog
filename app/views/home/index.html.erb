@@ -1,2 +1,43 @@
-
-<h1> Home page </h1>
+<div class="container"> 
+    <table class="table table-hover table-light table-borderless">
+    
+        <% @post.each do |post| %>
+        <tbody>
+        <tr>
+        </tr>
+        <tr>
+            <td> <%= link_to post.title,post_path(post) %> 
+            <%# <a class="title_of_blog"><%=post.title %>
+             <%# <p> <%= post.created_at %>
+             
+       
+            <%# <td colspan="1">  <%= link_to 'Show' , post_path(post) %> 
+            <%# </td> %> 
+             <td width="5%" ><%= link_to post_path(post) do %>
+                            <i class="fa fa-eye"></i>
+                            <% end %>
+                           
+            </td>
+            <%  if session[:user_id] == post[:user_id] or session[:username] == "admin"%>
+            <td width="5%" ><%= link_to edit_post_path(post) do %>
+                            <i class="fa fa-pencil"></i>
+                            <% end %>
+                           
+            </td>
+             <td width="5%"><%= link_to destroy_post_path(post) ,method: :delete,
+              data: { confirm: 'Are you sure?' } do%>             
+              <i class="fa fa-trash"></i> </td>
+               <% end %>            
+            <% end %>
+            <% end %> 
+            
+           
+        </tr>
+        </tbody>    
+    </table>
+    <div class="col-md-4 offset-md-4">
+        <div class="pagenumber">
+            <%= will_paginate(@post, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+        </div>
+    </div>   
+</div>

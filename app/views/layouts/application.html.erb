@@ -1,46 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>International Institute of Independent Researchers</title>
+    <title>Saral Karki</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
-   
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=montserrat' %>
   </head>
 
   <body>
-  
-  <nav class="navbar navbar-expand-lg navbar-light">
-  <div class="col-md-1 col-sm-12"><%= image_tag("logo.png", :alt => "rss feed", :class => "logo")     %></div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to 'Home', root_path , class:"nav-link"%> <span class="sr-only">(current)</span>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'New Post', new_post_path , class:"nav-link" %>
-      </li>
-      </ul>
-      <ul class="navbar-nav justify-content-end">
-     <%  if !session[:user_id]%>
-            <li class="nav-item"><%= link_to 'Login', login_path , class:"nav-link fa fa-sign-in"%>          
-            <%# <li class="nav-item"><%= link_to 'Register', register_page_path , class:"nav-link fa fa-user-plus"%>
-            <%# </li>  %>                     
-          <% else %>    
-          <li class="nav-item"> <%= link_to session[:username].upcase, user_detail_path(@user) , class:"nav-link" %>
-          </li> 
-          <li class="nav-item"><%= link_to 'Logout', logout_path , class:"nav-link"%> </li>      
-          
-        <% end %>
+  <div class="container" >
+    <nav class="navbar navbar-expand-lg navbar-light">
+ 
+      <ul class="navbar-nav ml-auto">  
+            <li class="nav-item"><%= link_to 'Home', root_path , class:"nav-link"%>  
+             <%# <li class="nav-item"><%= link_to 'About', login_path , class:"nav-link"%>  
+              <%# <li class="nav-item"><%= link_to 'Projects', login_path , class:"nav-link"%>   
+               <%# <li class="nav-item"><%= link_to 'Contact', login_path , class:"nav-link"%>  
+               <li class="nav-item"><%= link_to 'Blog', post_home_path , class:"nav-link"     %>                       
          </ul>
-  </div>
-</nav>   
+  </nav>   
+</div>
   <%= yield %>  
   </body>
 

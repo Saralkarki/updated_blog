@@ -1,44 +1,30 @@
-<div class="container"> 
-    <%= link_to post_path(@main_post), :action => 'go' do %>
-        <div class="col-md-4 intro">
-            <h4 class="title_of_blog"><%= @main_post.title  %>  </h4>
-            <%= image_tag("logo.png", :alt => "rss feed", :class => "logo_in_intro_doc") %>
-        </div>
-    <% end %>
-    <table class="table table-hover table-dark table-borderless">
-        <% @post.each do |post| %>
-        <tbody>
-        <tr>
-        
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12 post_heading_show">
 
-        </tr>
-        <tr>
-            <td> <%= link_to post.title,post_path(post) %> 
-            <%# <a class="title_of_blog"><%=post.title %>
-             <%# <p> <%= post.created_at %>
-             
+    </div>
+        <div class="col-md-8 offset-md-2">
+         <% @post.each do |post| %>
+            <div class="post_heading">
+            <!-- used regex to create the time> -->
+            <p> <%= post.created_at.strftime('%A, %B %d')%>
+                <h1><%= post.title %></h1>
+            </div>
+            <div class="post_body">
+                <p> <%= markdown(post.blob) %>  </p>
+            </div>
+            <div class="row separator"> </div>
+        <% end %>
+        
        
-            <%# <td colspan="1">  <%= link_to 'Show' , post_path(post) %> 
-            <%# </td> %> 
-             <td width="5%" ><%= link_to post_path(post) do %>
-                            <i class="fa fa-eye"></i>
-                            <% end %>
-                           
-            </td>
-            <%  if session[:user_id] == post[:user_id] or session[:username] == "admin"%>
-            <td width="5%" ><%= link_to edit_post_path(post) do %>
-                            <i class="fa fa-pencil"></i>
-                            <% end %>
-                           
-            </td>
-             <td width="5%"><%= link_to destroy_post_path(post) ,method: :delete,
-              data: { confirm: 'Are you sure?' } do%>             
-              <i class="fa fa-trash"></i> </td>
-               <% end %>            
-            <% end %>
-            <% end %>          
-        </tr>
-        </tbody>    
-    </table>  
+        </div>
+    <div> 
     
+   
+</div></br>
+<div class="col-md-4 offset-md-4">
+    <div class="pagenumber_post">
+      <%= will_paginate(@post, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    </div>
 </div>
+            
