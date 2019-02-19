@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
        
-        @user_id = current_user.posts.all 
+        # @user_id = current_user.posts.all 
     end
 
     def new
