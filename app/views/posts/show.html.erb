@@ -1,29 +1,21 @@
-<div class="container-fluid">
-    <div class="row">
-    <div class="col-md-12 post_heading_show">
 
+    <!-- used regex to create the time> -->
+    <div class="title"> 
+        <h1 class="title_of_blog_post"><%= @post.title %></h1>
+        <p class="created_at"> <%= @post.created_at.strftime('%A, %B %d')%></p>
     </div>
-        <div class="col-md-8 offset-md-2">
-            <div class="post_title">
-            <!-- used regex to create the time> -->
-            <p> <%= @post.created_at.strftime('%A, %B %d')%>
-                <h1><%= @post.title %></h1>
-            </div>
-            <div class="post_author">
-                <p> <h5>Author: <%=  @post.user.username %></h5> </p>
-            </div>
-            <div class="post_body">
-                <p> <%= markdown(@post.blob) %>  </p>
-            </div>
-           
-        </div>
-    <div> 
-  
-</div>
-<div class="col-md-4 offset-md-4">
-    <div class="pagenumber_post">
-      <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+
+<div class="col-md-8 offset-md-2">
+    <div class="post_author">
+        <%# <p> <h5>Author: <%=  @post.user.username %></h5> </p> 
     </div>
-</div>
+    <div class="post_body">
+        <p> <%= markdown(@post.blob) %>  </p>
+    </div>
+ </div>
+   
+  </br>
+
+
             
   

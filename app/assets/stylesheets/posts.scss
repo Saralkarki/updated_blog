@@ -2,20 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //CSS for Show post page
-.post_heading_show{
-    background: lightblue url("blog_bg.jpg") no-repeat fixed center;
-    height:30vh;
-    margin-top:20px
+.title{
+    background: #3C6997;
+    height: 30vh;
+    margin:10px 0px 5px 0px ;
+    text-align:center;
+    
 }
-.logo{
-    width: 80%;
-    height: auto;
-    margin: 5px 0 0 0;
-   
+.title_of_blog_post{
+    position: relative;
+    top: 90px;
+    font-size: 3em;
+    color: #171A21
 }
-.post_title{
-    margin-top:15px;
+.created_at{
+    position:relative;
+    top: 95px;
 }
+
+
 
 
 // Create post page
@@ -24,9 +29,13 @@
     border: 2px solid;
 }
 .post_heading{
-    margin-top: 15px;
-    text-align: center;
-}
+    width: 100%;
+    background: #3C6997;
+    height: 30vh;
+    margin:15px 0px 15px 0px ;
+    text-align:center;        
+    }
+
 #btn{
     text-align:center;
 }
@@ -40,4 +49,3 @@
 .pagenumber_post{
      margin-top:10px;   
 }
-

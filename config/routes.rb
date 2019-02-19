@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # Routes for users
   #root 'posts#index' 
   get 'users/new' => 'users#new', as: 'register_page'
