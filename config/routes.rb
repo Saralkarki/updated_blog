@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   # Routes for users
   #root 'posts#index' 
-  get 'users/new' => 'users#new', as: 'register_page'
+  # get 'users/new' => 'users#new', as: 'register_page'
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
    
