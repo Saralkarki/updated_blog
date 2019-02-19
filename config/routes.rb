@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'sessions/:id' => 'sessions#show' , as: 'user_detail'
 
   resources :sessions, only: [:create,:show,:edit,:update]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:create]
   
   #Routes for blog posts
   root 'home#index'
