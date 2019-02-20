@@ -15,6 +15,9 @@ gem 'puma', '~> 3.11'
 # gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.2.1'
 gem "font-awesome-rails" , '~> 4.7.0.4'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+gem 'bootstrap-will_paginate', '~> 1.0'
+
 # gem 'sassc-rails', '>= 2.0.0'
 gem 'redcarpet', '~> 3.4'
 gem 'pygments.rb', '~> 1.2', '>= 1.2.1'
@@ -60,8 +63,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'will_paginate', '~> 3.1', '>= 3.1.6'
-gem 'bootstrap-will_paginate', '~> 1.0'
+
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

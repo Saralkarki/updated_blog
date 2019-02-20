@@ -1,18 +1,14 @@
 
 var myInput = document.getElementById("textbox");
-    if(myInput.addEventListener ) {
-        myInput.addEventListener('keydown',this.keyHandler,false);
-    } else if(myInput.attachEvent ) {
-        myInput.attachEvent('onkeydown',this.keyHandler); 
-    }
-    function keyHandler(e) {
-        var TABKEY = 9;
-        if(e.keyCode == TABKEY) {
-            this.value += "    ";
-            if(e.preventDefault) {
-                e.preventDefault();
-            }
-            return false;
-        }
-    }
-
+$(function() {
+    $(myInput).on('keydown', function(e) {
+      if (e.keyCode == 9 || e.which == 9) {
+        e.preventDefault();
+        var s = this.selectionStart;
+        $(this).val(function(i, v) {
+          return v.substring(0, s) + "\t" + v.substring(this.selectionEnd)
+        });
+        this.selectionEnd = s + 1;
+      }
+    });
+  });
