@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def show
     @user = User.find(params[:id])
     # session[:user_id] = @user.id  
-    # session[:username] = @user.username 
+    session[:username] = @user.username 
     # sputs ">>>> #{@user.username}"
   end
 
