@@ -20,9 +20,6 @@
     top: 95px;
 }
 
-
-
-
 // Create post page
 .blog_body{
     resize:none;
@@ -42,10 +39,28 @@
 .text_size{
     width: 200px;
 }
-.separator{
-    height:10px;
-    background: black;
-}
 .pagenumber_post{
      margin-top:10px;   
+}
+
+
+@media only screen and (max-width: 990px){
+    .post_heading{
+        width: 100%;
+        background: #3C6997;
+        height: 10vh;
+        margin:10px 0px 10px 0px ;
+        text-align:center;        
+        }
+    .post_body{
+        font-size: 2em;
+    }
+    .title{
+        background: #3C6997;
+        height: 10vh;
+        margin:10px 0px 5px 0px ;
+        text-align:center;
+        
+    }
+
 }

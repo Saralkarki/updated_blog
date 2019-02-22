@@ -6,14 +6,14 @@
         <tr>
         </tr>
         <tr>
-            <td> <%= link_to post.title,post_path(post) %> 
+            <td> <%= link_to post.title,post_path(post), class:"content" %> 
             <%# <a class="title_of_blog"><%=post.title %>
              <%# <p> <%= post.created_at %>
              
        
             <%# <td colspan="1">  <%= link_to 'Show' , post_path(post) %> 
             <%# </td> %> 
-             <td width="5%" ><%= link_to post_path(post) do %>
+             <td width="5%" ><%= link_to post_path(post)  do %>
                             <i class="fa fa-eye"></i>
                             <% end %>
                            
