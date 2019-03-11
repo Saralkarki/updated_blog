@@ -1,13 +1,15 @@
 <div class="container-fluid">
+    
     <div class="row">
     <div class="col-md-12 post_heading_show">
 
     </div>
-       
+     
          <% @post.each do |post| %>
             <div class="post_heading">
             <!-- used regex to create the time> -->           
                 <h1 class = "title_of_blog_post"><%= post.title %></h1>
+                
             </div>
              <div class="col-md-8 offset-md-2">
              <p> <%= post.created_at.strftime('%A, %B %d')%></p>

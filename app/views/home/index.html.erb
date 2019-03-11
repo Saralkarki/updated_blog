@@ -1,6 +1,21 @@
 <div class="container"> 
-    <table class="table table-hover table-light table-borderless">
-    
+ <div class="row">    
+ <div class="col-md-6" style= "height: 500px;background:red url(<%= url_for(@post.first.image.url(:large)) %>) no-repeat;">
+ <h1>   <%= @post.first.title  %>    </h1> 
+</div>
+ </div>
+ <%# <%= image_tag @post.first.image.url(:large)%>
+<div class="row">
+<% @post.each do |post| %>     
+        <% if post.category == "Coding" %>      
+        <div class="col-md-4 category_1" style="height: 230px;background: url(<%= url_for(post.image.url(:medium)) %>) no-repeat;">                  
+         <h1>   <%= post.title  %>    </h1>      
+            <%# <%= image_tag post.image.url(:medium) %> 
+        </div>    
+        <%end%>   
+    <% end %>
+    </div>
+    <table class="table table-hover table-light table-borderless">   
         <% @post.each do |post| %>
         <tbody>
         <tr>

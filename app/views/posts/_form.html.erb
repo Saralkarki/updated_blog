@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f|%> 
+<%= form_for @post, html: { multipart: true } do |f|%> 
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -20,9 +20,16 @@
                     <%= f.text_field :title , class: "form-control" , placeholder: "Title" , :required => true %>
                 </div>
                 <div class="form-group">
-                    <%= f.label :blob, 'Story' %><br>
-                    <%= f.text_area :blob, class: "form-control blog_body" , rows: 20, id: "textbox", :required => true %>             
+
+<%= f.select :category, [ 'Running','Coding','Books' ], :prompt => 'Select One', input_html: { class: "form-control", required: true } %>
+                  </br>
+                  <!--<%= f.label :blob, 'Story' %> --></br>
+                  <%= f.text_area :blob, class: "form-control blog_body" , rows: 20, id: "textbox", :required => true  %>             
                   <%# <%= f.hidden_field :username, :value => @user.username %></br>
+                <div class="form-group">
+                  <%= f.label :image %><br>
+                  <%= f.file_field :image %>
+                </div>
                 <div id = "btn">
                     <%= f.submit "Submit", class: "btn btn-primary" %>
                 </div>

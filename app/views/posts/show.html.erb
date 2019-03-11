@@ -2,6 +2,8 @@
     <!-- used regex to create the time> -->
     <div class="title"> 
         <h1 class="title_of_blog_post"><%= @post.title %></h1>
+        <%# <h1> Category: <%= @post.category %>
+        
         <p class="created_at"> <%= @post.created_at.strftime('%A, %B %d')%></p>
     </div>
 
@@ -10,7 +12,9 @@
         <%# <p> <h5>Author: <%=  @post.user.username %></h5> </p> 
     </div>
     <div class="post_body">
+        <p> <%= image_tag @post.image.url(:medium)%>
         <p> <%= markdown(@post.blob) %>  </p>
+       
     </div>
  </div>
    

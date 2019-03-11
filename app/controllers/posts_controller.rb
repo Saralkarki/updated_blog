@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
     def index
         @post = Post.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
+        #categories
         # @post_id = Post.find(params[:id]) 
         # puts "....#{@post}"
     end
@@ -54,7 +55,7 @@ class PostsController < ApplicationController
     
     private 
         def post_params
-            params.require(:post).permit( :title , :blob)
+            params.require(:post).permit( :title , :blob,:category,:image)
         end
    
 
