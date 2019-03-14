@@ -16,7 +16,20 @@
         <p> <%= markdown(@post.blob) %>  </p>
        
     </div>
+    <%  if session[:user_id] == @post[:user_id] or session[:username] == "admin"%>
+            <%= link_to edit_post_path(@post) do %>
+                            <i class="fa fa-pencil"></i>
+                            <% end %>
+                           
+            
+<%= link_to destroy_post_path(@post) ,method: :delete,
+              data: { confirm: 'Are you sure?' } do%>             
+              <i class="fa fa-trash"></i> </td>
+               <% end %>            
+            <% end %>
  </div>
+
+ 
    
   </br>
 

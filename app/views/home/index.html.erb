@@ -1,37 +1,40 @@
 <div class="container"> 
-    <h1> Latest post </h1> 
+    <div class="row">
+    <h1 class="blog_titles"> Latest post </h1> 
+    </div>
     <div class="row"> 
-        <div class="col-md-6" style= "height: 500px;background: url(<%= url_for(@post.first.image.url(:large)) %>) no-repeat;">
-            <h1>   <%= @post.first.title  %>    </h1> 
+        <div class="col-md-6" style= "height: 500px;background:url(<%= url_for(@post.first.image.url(:large)) %>) no-repeat;">
+            <h1 class="post-titles">   <%= @post.first.title  %>    </h1> 
             <p style = "background: url(<%= url_for(@post.first.image.url(:medium))%>;)"> </p>
         </div>
         <div class="col-md-6">    
-            <div style="height: 225px; background: url(<%= url_for(@post[1].image.url(:medium)) %>) no-repeat">
-                <h3>  <%= @post[1].title  %> </h3>
+            <div style="height: 225px; background:  url(<%= url_for(@post[1].image.url(:medium)) %>) no-repeat">
+                <h3 class="post-titles-medium">  <%= @post[1].title  %> </h3>
             </div>
+            
             <div style="height: 225px; background: url(<%= url_for (@post[2].image.url(:medium)) %>) no-repeat">
-                <h3>  <%= @post[2].title  %> </h3>
+                <h3 class="post-titles-medium">  <%= @post[2].title  %> </h3>
             </div>
         </div>
     </div>
-    <h1> Coding </h1>
+    <h1 class="blog_titles"> Coding </h1>
     <div class="row">       
         <% @post_coding.each do |post| %> 
             <div class="col-md-3">   
                 <div style= "height: 225px;  margin-left:-15px; background:url(<%= url_for(post.image.url(:medium)) %>) no-repeat;">
-                    <h4>   <%= post.title  %>    </h4> 
+                    <h4 class="post-titles-medium">   <%= post.title  %>    </h4> 
                 </div>
             </div>
             <%  end %>  
     </div>
 <% if @post_running.length > 0 %>
-    <h1> Running </h1>
+    <h1 class="blog_titles"> Running </h1>
     <%# <%= image_tag @post.first.image.url(:large)%>
     <div class="row">
         <% @post_running.each do |post| %>     
             <% if post.category == "Running" %>      
             <div class="col-md-4 category_1" style="height: 230px;background: url(<%= url_for(post.image.url(:medium)) %>) no-repeat;">                  
-                <h1>  This <%= post.title  %>    </h1>      
+                <h1>  <%= post.title  %>    </h1>      
             <%# <%= image_tag post.image.url(:medium) %> 
             </div>    
             <%end%>   
@@ -39,7 +42,7 @@
     </div>
 <% end %>
 <% if @post_books.length > 0 %>
-<H1> Books </h1>
+<H1 class="blog_titles"> Books </h1>
 <div class="row">
 <% @post_books.each do |post| %>     
         <% if post.category == "Books" %>      
@@ -52,7 +55,7 @@
     </div>
 <% end %>
 <% if @post_experiences.length > 0 %>
-<h1> Experiences </h1>
+<h1 class="blog_titles"> Experiences </h1>
 <div class="row">
 <% @post_experiences.each do |post| %>     
         <% if post.category == "Experience" %>      
