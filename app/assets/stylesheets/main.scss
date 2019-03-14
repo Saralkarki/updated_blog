@@ -10,10 +10,17 @@ body{
 .navbar{
     background: #fff;
     margin-right: -50px;
+    margin-bottom: 30px;
 }
 .nav-link{
-    font-size: 2em;
+    font-size: 1.25em;
+    font-family: Helvetica;
     margin: 10px 0 0 0;
+    color: #222222;
+}
+.nav-link:hover{
+    text-decoration:none;
+    color: #9299ff;
 }
 
 .title_of_blog{
