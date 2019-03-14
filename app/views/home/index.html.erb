@@ -24,11 +24,25 @@
             </div>
             <%  end %>  
     </div>
-<h1> Running </h1>
- <%# <%= image_tag @post.first.image.url(:large)%>
+<% if @post_running.length > 0 %>
+    <h1> Running </h1>
+    <%# <%= image_tag @post.first.image.url(:large)%>
+    <div class="row">
+        <% @post_running.each do |post| %>     
+            <% if post.category == "Running" %>      
+            <div class="col-md-4 category_1" style="height: 230px;background: url(<%= url_for(post.image.url(:medium)) %>) no-repeat;">                  
+                <h1>  This <%= post.title  %>    </h1>      
+            <%# <%= image_tag post.image.url(:medium) %> 
+            </div>    
+            <%end%>   
+        <% end %>
+    </div>
+<% end %>
+<% if @post_books.length > 0 %>
+<H1> Books </h1>
 <div class="row">
-<% @post.each do |post| %>     
-        <% if post.category == "Coding" %>      
+<% @post_books.each do |post| %>     
+        <% if post.category == "Books" %>      
         <div class="col-md-4 category_1" style="height: 230px;background: url(<%= url_for(post.image.url(:medium)) %>) no-repeat;">                  
          <h1>  This <%= post.title  %>    </h1>      
             <%# <%= image_tag post.image.url(:medium) %> 
@@ -36,6 +50,20 @@
         <%end%>   
     <% end %>
     </div>
+<% end %>
+<% if @post_experiences.length > 0 %>
+<h1> Experiences </h1>
+<div class="row">
+<% @post_experiences.each do |post| %>     
+        <% if post.category == "Experience" %>      
+        <div class="col-md-4 category_1" style="height: 230px;background: url(<%= url_for(post.image.url(:medium)) %>) no-repeat;">                  
+         <h1>  This <%= post.title  %>    </h1>      
+            <%# <%= image_tag post.image.url(:medium) %> 
+        </div>    
+        <%end%>   
+    <% end %>
+    </div>
+<%end%>
     <table class="table table-hover table-light table-borderless">   
         <% @post.each do |post| %>
         <tbody>
@@ -71,9 +99,9 @@
         </tr>
         </tbody>    
     </table>
-    <div class="col-md-4 offset-md-4">
+    <!-- <div class="col-md-4 offset-md-4">
         <div class="pagenumber">
             <%= will_paginate(@post, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
         </div>
-    </div>   
+    </div>  -->  
 </div>
