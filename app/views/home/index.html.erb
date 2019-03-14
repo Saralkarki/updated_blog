@@ -2,11 +2,15 @@
     <div class="row">
     <h1 class="blog_titles"> Latest post </h1> 
     </div>
-    <div class="row"> 
-        <div class="col-md-6" style= "height: 500px;background:url(<%= url_for(@post.first.image.url(:large)) %>) no-repeat;">
-            <h1 class="post-titles">   <%= @post.first.title  %>    </h1> 
-            <p style = "background: url(<%= url_for(@post.first.image.url(:medium))%>;)"> </p>
+    <div class="row">  
+        <div class="col-md-6">   
+     <%= link_to @post.first, method: :get do %>
+      <div style= "height: 400px;background: red url(<%= url_for(@post.first.image.url(:large)) %>) no-repeat;">
+           <h1 class="post-titles"> <%= @post.first.title%></h1>
         </div>
+    
+       <%end%>
+    </div>
         <div class="col-md-6">    
             <div style="height: 225px; background:  url(<%= url_for(@post[1].image.url(:medium)) %>) no-repeat">
                 <h3 class="post-titles-medium">  <%= @post[1].title  %> </h3>
