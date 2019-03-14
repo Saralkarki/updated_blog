@@ -12,7 +12,7 @@
         <%# <p> <h5>Author: <%=  @post.user.username %></h5> </p> 
     </div>
     <div class="post_body">
-        <p> <%= image_tag @post.image.url(:thumb)%>
+        <p> <%= image_tag @post.image.url(:medium)%>
         <p> <%= markdown(@post.blob) %>  </p>
        
     </div>
